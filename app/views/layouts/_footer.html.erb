@@ -1,0 +1,21 @@
+<footer class="nav navbar-bottom">
+	<div>
+		<ul class="nav nav-pills">
+			<li role="presentation"><a href="/">Home</a></li>
+		</ul>
+	</div>
+	<div class="pull-right">
+		<% if user_signed_in? %>
+		<%= link_to destroy_user_session_path, method: :delete do %>
+		<i class="fa fa-sign-out">&nbspSign out</i>
+		<% end %>
+		<% else %>
+		<%= link_to new_user_session_path do %>
+		<i class="fa fa-sign-in">&nbspSign in</i>
+		<% end %>
+		<% end %>
+	</div>
+	<div>
+		&nbspManage Property Inc Copyright &copy 2015.
+	</div>
+</footer>

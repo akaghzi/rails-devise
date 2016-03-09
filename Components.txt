@@ -1,0 +1,23 @@
+Components
+1. Team management
+2. Properties lists
+3. Notifications
+4. Document management
+5. Task management
+6. Contracts
+7. Contracts jobs
+8. Comments
+9. Ratings
+10. Vendor Management
+11. Access Control
+12. Bookings
+13. Listings
+
+Features
+
+1. Centralized
+2. Free trail
+3. Secure
+4. Available
+5. Responsive
+6. Easy
