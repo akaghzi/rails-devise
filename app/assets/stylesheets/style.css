@@ -89,7 +89,7 @@ hr {
   color: #f75353 !important;
 }
 .green {
-  color: #5C7A00 !important;
+  color: #99CC00 !important;
 }
 .lblue {
   color: #32c8de !important;
@@ -126,7 +126,7 @@ hr {
   background-color: #f75353 !important;
 }
 .bg-green {
-  background-color: #51d466 !important;
+  background-color: #99CC00 !important;
 }
 .bg-lblue {
   background-color: #32c8de !important;
@@ -163,7 +163,7 @@ hr {
   border: 1px solid #f75353;
 }
 .br-green {
-  border: 1px solid #5C7A00;
+  border: 1px solid #99CC00;
 }
 .br-lblue {
   border: 1px solid #32c8de;
@@ -245,14 +245,14 @@ hr {
 }
 .btn.btn-green {
 	color: #ffffff;
-	background: #51d466;
-	border: 1px solid #30c247;
+	background: #99CC00;
+	border: 1px solid #99CC00;
 }
 .btn.btn-green:hover,
 .btn.btn-green:focus,
 .btn.btn-green.active,
 .btn.btn-green:active {
-	background: #30c247;
+	background: #5C7A00;
 	color: #ffffff;
 }
 .btn.btn-lblue {
@@ -336,7 +336,7 @@ hr {
 .btn.btn-brown:focus,
 .btn.btn-brown.active,
 .btn.btn-brown:active {
-	background: #c4613f;
+	background: #5C7A00;
 	color: #ffffff;
 }
 /* Label */
@@ -382,7 +382,7 @@ hr {
 }
 .label.label-green {
 	color: #ffffff;
-	background: #51d466;
+	background: #99CC00;
 }
 .label.label-lblue {
 	color: #ffffff;
@@ -441,7 +441,7 @@ hr {
 }
 .badge.badge-green {
 	color: #ffffff;
-	background: #51d466;
+	background: #99CC00;
 }
 .badge.badge-lblue {
 	color: #ffffff;

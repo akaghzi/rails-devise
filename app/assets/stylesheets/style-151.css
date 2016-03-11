@@ -1,0 +1,66 @@
+.ui-151{
+	margin:20px 0px;
+}
+.ui-151 .ui-item{
+	max-width:270px;
+	margin:20px auto;
+	padding:25px;
+	background:rgba(81,212,102,0.8);
+	border:1px solid rgba(255,255,255,0.9);
+	border-radius:4px;
+	box-shadow:0px 0px 15px rgba(0,0,0,0.1);
+	text-align:center;
+	position:relative;
+}
+.ui-151 .ui-item .star{
+	color:#fff;
+	position:absolute;
+	top:-13px;
+	left:0px;
+	font-size:20px;
+	width:100%;
+}
+.ui-151 .ui-item h2{
+	font-size:14px;
+	line-height:34px;
+	text-transform:uppercase;
+	color:#fff;
+}
+.ui-151 .ui-item h3{
+	font-size:30px;
+	line-height:50px;
+	font-weight:300;
+	color:#fff;
+}
+.ui-151 .ui-item ul{
+	margin:20px auto;
+	max-width:180px;
+}
+.ui-151 .ui-item ul li{
+	padding:14px 0px;
+	color:#fff;
+	border-top:1px solid rgba(0,0,0,0.1);
+	text-transform:uppercase;
+	font-size:12px;
+}
+.ui-151 .ui-item ul li:last-child{
+	border-bottom:1px solid rgba(0,0,0,0.05);
+}
+.ui-151 .ui-item .btn{
+	background:transparent;
+	border:1px solid #fff;
+	border-radius:20px;
+	padding:8px 20px;
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:600;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;	
+}
+.ui-151 .ui-item .btn:hover{
+	background:#fff;
+	color:#666;
+}	
