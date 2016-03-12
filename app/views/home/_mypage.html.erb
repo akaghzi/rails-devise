@@ -1,4 +1,8 @@
 <div>
+	<%= alert %>
+	<%= notice %>
+</div>
+<div>
 	<% @access_list.each do |al| %>
 		<% if al.role.role_type == 'Company' %>
 			<%= link_to al.company.name, company_path(al.company.id) %>
