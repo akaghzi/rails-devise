@@ -1,29 +1,75 @@
-<h2>Sign up</h2>
+<div class="header3">
+	<div class="containter-fluid">
+		<!-- UI - X Starts -->
+		<div class="ui-331">
+			<div class="container">
+				<!-- <div class="row">
+					<div class="col-md-8 col-sm-10 col-xs-10 col-mob"> -->
+						<!-- Outer Starts -->
+						<div class="ui-outer">
+							<!-- Form -->
+							<div class="ui-form">
+								<!-- Heading -->
+								<h4>Sign up</h4>
+								<!-- Form -->	
+								<!-- <form class="form"> -->
+									<%= form_for(resource, as: resource_name, 
+															url: registration_path(resource_name),
+															html: {role: "form" }) do |f| %>
+									<%= devise_error_messages! %>
+									<div class="form-group">
+										<!-- Email -->
+										<!-- <input type="email" class="form-control" placeholder="Enter Email"> -->
+										<%= f.text_field :firstname, autofocus: true, placeholder: "Firstname", class: "form-control" %>
+									</div>
+									<div class="form-group">
+										<!-- Email -->
+										<!-- <input type="email" class="form-control" placeholder="Enter Email"> -->
+										<%= f.text_field :lastname, placeholder: "Lastname", class: "form-control" %>
+									</div>
+									<div class="form-group">
+										<!-- Email -->
+										<!-- <input type="email" class="form-control" placeholder="Enter Email"> -->
+										<%= f.phone_field :phone, placeholder: "Phone", class: "form-control" %>
+									</div>
+									<div class="form-group">
+										<!-- Email -->
+										<!-- <input type="email" class="form-control" placeholder="Enter Email"> -->
+										<%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+									</div>
+									<div class="form-group">
+										<!-- Password -->
+										<!-- <input type="password" class="form-control" placeholder="Enter Password"> -->
+										<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+									</div>
+									<div class="form-group">
+										<!-- Confirm Password  -->
+										<!-- <input type="password" class="form-control" placeholder="Confirm Password"> -->
+										<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
+									</div>
+									<!-- <div class="form-group">
+										<div class="checkbox">
+											<label> -->
+												<!-- CheckBox -->
+												<!-- <input type="checkbox"> Terms & Conditions
+											</label>
+										</div>
+									</div> -->
+									<div class="form-group">
+										<!-- Sign Up Button -->
+										<button type="submit" class="btn btn-green">Sign Up</button>
+									</div>
+									<%#= render "users/shared/links" %>
+								<!-- </form> -->
+								<% end %>
+							</div>
+						</div>	
+						<!-- Outer Ends -->
+					<!-- </div>
+				</div> -->
+			</div>
+		</div>
+		<!-- UI - X Ends -->
+	</div>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>

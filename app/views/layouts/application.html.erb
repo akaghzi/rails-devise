@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ManageProperty</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>ManageProperty</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 	<% if user_signed_in? %>
-		<%= render partial: 'layouts/top_navigation' %>
+	<%= render partial: 'layouts/top_navigation' %>
 	<% end %>
-<div class="container">
-	<%= yield %>
-</div>
-<%= render partial: 'layouts/footer' %>
+	<div class="container-fluid">
+		<%= yield %>
+	</div>
+	<div>
+		<%= render partial: 'layouts/footer' %>
+	</div>
+	<div>
+		<%= render partial: 'layouts/bottom' %>
+	</div>
 </body>
 </html>

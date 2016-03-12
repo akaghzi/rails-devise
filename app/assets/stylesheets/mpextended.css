@@ -1,22 +1,66 @@
 .header2{
 	color: white;
 	padding:60px 50px 100px 50px;
-	background:url("city-scape.jpg") no-repeat center center;
+	background:url("vancouver-night.jpg") no-repeat center center;
+	background-attachment:fixed;
+	background-size:cover;
+}
+.header3{
+	background:url("vancouver-evening.jpg") no-repeat center center;
 	background-attachment:fixed;
 	background-size:cover;
 }
 
 footer {
 	margin-top: 10px;
-	padding: 20px 10px 20px 0px;
-	border-top: 1px solid green;
-}
-.address{
-	margin: 0px;
 	padding: 10px;
+	border-top: 1px solid green;
 	background:darkgrey;
-	color:white;
+	color:white !important;
 }
-.address h5{
-	color:white;
+/*@media(max-width: 1800px){
+	.cet {
+		width: 40%;
+	}
 }
+@media(max-width: 1200px){
+	.cet {
+		width: 50%;
+	}
+}
+@media(max-width: 992px){
+	.cet {
+		width: 70%;
+	}
+}
+@media(max-width: 768px){
+	.cet {
+		width: 90%;
+	}
+}
+.cet{
+	color: black;
+	display: block;
+	margin: 40px auto 40px auto !important;
+	border: 1px solid white;
+	border-radius: 4px;
+	padding: 40px;
+	background:rgba(255,255,255,.9);
+}
+.cet:hover{
+	background: white;
+}
+.cet h4{
+	text-align: center;
+	font-size: 1.4em;
+}
+.cet .cet-form{
+	padding: 0px 40px 0px 40px;
+}
+.cet .cet-form .form-control{
+	border:0px;
+	border-bottom: 1px dashed darkgrey;
+	background: transparent;
+	box-shadow: none;
+	font-size: 1.2em;
+}*/

@@ -1,22 +1,30 @@
-<footer class="nav navbar-bottom">
-	<div>
+<footer>
+	<div class="nav navbar-bottom" >
 		<ul class="nav nav-pills">
-			<li role="presentation"><a href="/">Home</a></li>
+			<li role="presentation">
+				<a href="/"><i class="fa fa-home">Home</i></a>
+			</li>
+			<% if user_signed_in? %>
+			<li>
+				<%= link_to companies_path  do %>
+				<i class="fa fa-building">&nbspCompany</i>
+				<% end %>
+			</li>
+			<li>
+				<%= link_to destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"} do %>
+				<i class="fa fa-sign-out">&nbspSign out</i>
+				<% end %>
+			</li>
+			<% else %>
+			<li>
+				<%= link_to new_user_session_path do %>
+				<i class="fa fa-sign-in">&nbspSign in</i>
+				<% end %>
+			</li>
+			<% end %>
 		</ul>
 	</div>
-	<div class="pull-right">
-		<% if user_signed_in? %>
-		<%= link_to destroy_user_session_path, method: :delete do %>
-		<i class="fa fa-sign-out">&nbspSign out</i>
-		<% end %>
-		<% else %>
-		<%= link_to new_user_session_path do %>
-		<i class="fa fa-sign-in">&nbspSign in</i>
-		<% end %>
-		<% end %>
-	</div>
-	<br>
-	<div class="address">
+	<div>
 		<address>
 			<h5>Mailing Address:</h5>
 			1001 13 Avenue SW,<br>

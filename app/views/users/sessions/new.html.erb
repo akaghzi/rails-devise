@@ -1,26 +1,60 @@
-<h2>Log in</h2>
+<div class="header3">
+	<div class="containter-fluid">
+		<!-- UI - X Starts -->
+		<div class="ui-331">
+			<div class="container">
+				<!-- <div class="row"> -->
+					<!-- <div class="col-md-6 col-sm-6 col-xs-6 col-mob"> -->
+						<!-- Outer Starts -->
+						<div class="ui-outer">	
+							<!-- Form -->
+							<div class="ui-form">
+								<!-- Heading -->
+								<h4>Sign in</h4>
+								<!-- Form -->
+								<!-- <form class="form"> -->
+									<%= form_for(:user, 
+																url: session_path(:user),
+																html: {role: "form"}) do |f| %>
+									<%= devise_error_messages! %>
+									
+									<div class="form-group">
+										<!-- Email -->
+										<!-- <input type="email" class="form-control" placeholder="Enter Email"> -->
+										<%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+									</div>
+									<div class="form-group">
+										<!-- Password -->
+										<!-- <input type="password" class="form-control" placeholder="Enter Password"> -->
+										<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+									</div>
+									<div class="form-group">
+										<div class="checkbox">
+											<label>
+												<!-- Checkbox -->
+												<!-- <input type="checkbox"> Remember me -->
+												<input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me"> Remember me
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<!-- Log In Button -->
+										<button type="submit" class="btn btn-green">Sign in</button>
+									</div>
+								<!-- </form> -->
+								<%#= render "users/shared/links" %>
+								<% end %>
+							</div>	
+						</div>
+						<!-- Outer Ends -->
+					</div>
+					<!-- Outer Ends -->
+					<p></p>
+				</div>
+			</div>
+		</div>
+		<!-- UI - X Ends -->
+	</div>
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>

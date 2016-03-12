@@ -1,0 +1,112 @@
+/* UI - X */
+.ui-331{
+	margin: 0;
+/*	margin-right: auto;
+	margin-left: auto;
+*/}
+/* Column Mobile */
+@media(max-width: 520px){
+/*	.ui-331 .col-mob{*/
+	.ui-331 .ui-outer{
+		width:100%;
+		margin:40px auto 40px auto;
+	}
+}
+/* Column small */
+@media(max-width: 768px){
+/*	.ui-331 .col-sm{*/
+	.ui-331 .ui-outer{
+		margin:40px auto 100px auto;
+		width:90%;
+	}
+}
+/* Column medium */
+@media(max-width: 992px){
+/*	.ui-331 .col-md{*/
+	.ui-331 .ui-outer{
+		margin:40px auto 200px auto;
+		width:70%;
+	}
+}
+/* Column large */
+@media(max-width: 1200px){
+/*	.ui-331 .col-lg{*/
+	.ui-331 .ui-outer{
+		margin:40px auto 250px auto;
+		width:50%;
+	}
+}
+/* Column x-large */
+@media(max-width: 1800px){
+/*	.ui-331 .col-lg{*/
+	.ui-331 .ui-outer{
+		margin:40px auto 300px auto;
+		width:50%;
+	}
+}
+/* Inner */
+.ui-331 .ui-outer{
+/*	max-width:330px;*/
+	
+	box-shadow:0px 0px 15px rgba(0,0,0,0.5);
+/*	background:url("assets/ui-331/1.jpg") no-repeat center center;*/
+	border-radius:6px;
+	padding:6px;
+/*	padding-bottom: 0px 0px 200px 0px;*/
+}
+/* Heading */
+.ui-331 .ui-outer h4{
+	font-size:20px;
+	line-height:23px;
+	margin-bottom:20px;
+	font-weight:400;
+	
+}
+/* Form */
+.ui-331 .ui-outer .ui-form{
+/*	margin-right: auto;
+	margin-left: auto;
+*/	
+	background:rgba(255,255,255,0.9);
+	padding:30px 30px 20px 30px;
+	border-radius:4px;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;	
+}
+.ui-331 .ui-outer .ui-form:hover{
+	background:#fcfcfc;
+}
+.ui-331 .ui-outer .ui-form .form-control{
+	padding-left:0px;
+	border:0px;
+	border-radius:0px;
+	border-bottom:1px dashed #999;
+	box-shadow:none;
+	background:transparent;
+}
+.ui-331 .ui-outer .ui-form ::-webkit-input-placeholder { /* WebKit browsers */
+    color:#777;
+}
+.ui-331 .ui-outer .ui-form :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:#777;
+   opacity:1;
+}
+.ui-331 .ui-outer .ui-form ::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:#777;
+   opacity:1;
+}
+.ui-331 .ui-outer .ui-form :-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:#777;
+}
+/* Button */
+/*.ui-331 .ui-outer .ui-form button.btn{
+	padding:10px 25px;
+	font-size:12px;
+	font-weight:600;
+	border:0px;
+	text-transform:uppercase;
+	border-radius:60px;
+}*/

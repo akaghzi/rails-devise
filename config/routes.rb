@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :companies
   get 'home/index'
+  get 'home/junk'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

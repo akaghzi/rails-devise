@@ -36,6 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :phone, null: false
       t.boolean :ismember, null: false, default: false
       t.boolean :issecured, null: false, default: false
+      t.boolean :termsaccepted, null: false, default: false
       t.string :timezone, null: false, default: "Eastern Timezone(US and Canada)"
 
       t.timestamps null: false
