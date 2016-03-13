@@ -18,6 +18,9 @@ footer {
 	background:darkgrey;
 	color:white !important;
 }
+address h5{
+	color: white !important;
+}
 /*@media(max-width: 1800px){
 	.cet {
 		width: 40%;

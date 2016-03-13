@@ -1,4 +1,5 @@
 class Service < ActiveRecord::Base
-  belongs_to :company
-  validates :name, :cmpany_id, presence: true
+  has_many :company_services
+  has_many :companies, through: :company_services
+  validates :name, presence: true, uniqueness: {case_sensituve: false}
 end

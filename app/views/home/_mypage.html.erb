@@ -4,9 +4,9 @@
 </div>
 <div>
 	<% @access_list.each do |al| %>
-		<% if al.role.role_type == 'Company' %>
+		<% if al.role.role_type == 'company' %>
 			<%= link_to al.company.name, company_path(al.company.id) %>
-		<% elsif al.role.role_type == 'Property' %>
+		<% elsif al.role.role_type == 'property' %>
 			<%= link_to al.property.name, property_path(al.property.id) %>
 		<% end %>
 	<% end %>

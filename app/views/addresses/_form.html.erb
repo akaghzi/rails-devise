@@ -1,0 +1,54 @@
+<%= form_for(@address) do |f| %>
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+      <% @address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :addressable_id %><br>
+    <%= f.text_field :addressable_id %>
+  </div>
+  <div class="field">
+    <%= f.label :addressable_type %><br>
+    <%= f.text_field :addressable_type %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address_1 %><br>
+    <%= f.collection_select :address_type_id, AddressType.all, :id, :name, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :address_1 %><br>
+    <%= f.text_field :address_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address_2 %><br>
+    <%= f.text_field :address_2 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :province_id %><br>
+		<%= f.grouped_collection_select :province_id, @countries, :provinces, :name, :id, :name %>
+    <%#= f.select :province_id, option_groups_from_collection_for_select(@countries, :provinces, :name, :name, :id) %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :current %><br>
+    <%= f.check_box :current %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

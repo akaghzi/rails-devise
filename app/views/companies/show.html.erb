@@ -1,9 +1,60 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @company.name %>
+	<strong>Name:</strong>
+	<%= @company.name %>
 </p>
-
+<p>
+	<% if @address.nil? %>
+	No address found on record
+	<%= link_to "Add address", new_address_path(addressable_id: @company.id, addressable_type: 'company'), class: "btn btn-medium btn-green" %>
+	<% else %>
+	<%= @address.address_1 %><br>
+	<% if !@address.address_2.nil? %>
+	<%= @address.address_2 %><br>
+	<% end %>
+	<%= @address.city %>, <%= @address.postal_code %><br>
+	<%= @address.province.name %><br>
+	<%= @address.province.country.name %><br>
+	<% end %>
+</p>
+<p>
+	<% if @contact.nil? %>
+	No contact information found on record
+	<%= link_to "Add contact", new_contact_path(addressable_id: @company.id, addressable_type: 'company'), class: "btn btn-medium btn-green" %>
+	<% else %>
+	<%= @contact.phone %><br>
+	<% if !@contact.fax.nil? %>
+	<%= @contact.fax %><br>
+	<% end %>
+	<% if !@contact.website.nil? %>
+	<%= @contact.website %><br>
+	<% end %>
+	<% if !@contact.email.nil? %>
+	<%= @contact.email %><br>
+	<% end %>
+	<% if !@contact.twitter.nil? %>
+	<%= @contact.twitter %><br>
+	<% end %>
+	<% if !@contact.facebook.nil? %>
+	<%= @contact.facebook %><br>
+	<% end %>
+	<% if !@contact.linkedin.nil? %>
+	<%= @contact.linkedin %><br>
+	<% end %>
+	<% if !@contact.googleplus.nil? %>
+	<%= @contact.googleplus %><br>
+	<% end %>
+	<% end %>
+</p>
+<p>
+	Services:<br>
+	<% @services.all.order("id").each do |service| %>
+	<%= service.service.name %><br>
+	<%= service.description %><br>
+	<% end %>
+	<%= link_to "Add service", new_company_service_path(company_id: @company.id), class: "btn btn-medium btn-green"%>
+</p>
+<%= "Owner: #{@isowner}"%><br>
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

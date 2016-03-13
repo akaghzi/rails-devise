@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312102857) do
+ActiveRecord::Schema.define(version: 20160313182747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,15 +30,43 @@ ActiveRecord::Schema.define(version: 20160312102857) do
   add_index "access_lists", ["role_id"], name: "index_access_lists_on_role_id", using: :btree
   add_index "access_lists", ["user_id"], name: "index_access_lists_on_user_id", using: :btree
 
+  create_table "address_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.string   "address_1",        null: false
+    t.string   "address_2"
+    t.integer  "province_id"
+    t.string   "city",             null: false
+    t.string   "postal_code"
+    t.boolean  "current",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "address_type_id"
+  end
+
+  add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id", using: :btree
+  add_index "addresses", ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
+  add_index "addresses", ["province_id"], name: "index_addresses_on_province_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cities", force: :cascade do |t|
-    t.integer  "country_id"
     t.integer  "province_id"
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "cities", ["country_id"], name: "index_cities_on_country_id", using: :btree
   add_index "cities", ["province_id"], name: "index_cities_on_province_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
@@ -49,6 +77,34 @@ ActiveRecord::Schema.define(version: 20160312102857) do
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
+
+  create_table "company_services", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "service_id"
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "company_services", ["company_id"], name: "index_company_services_on_company_id", using: :btree
+  add_index "company_services", ["service_id"], name: "index_company_services_on_service_id", using: :btree
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "contactable_id"
+    t.string   "contactable_type"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "website"
+    t.string   "email"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "linkedin"
+    t.string   "googleplus"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "contacts", ["contactable_type", "contactable_id"], name: "index_contacts_on_contactable_type_and_contactable_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -82,14 +138,12 @@ ActiveRecord::Schema.define(version: 20160312102857) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer  "company_id"
     t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "services", ["company_id"], name: "index_services_on_company_id", using: :btree
+  add_index "services", ["name"], name: "index_services_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",                                null: false
@@ -130,10 +184,12 @@ ActiveRecord::Schema.define(version: 20160312102857) do
   add_foreign_key "access_lists", "properties"
   add_foreign_key "access_lists", "roles"
   add_foreign_key "access_lists", "users"
-  add_foreign_key "cities", "countries"
+  add_foreign_key "addresses", "address_types"
+  add_foreign_key "addresses", "provinces"
   add_foreign_key "cities", "provinces"
   add_foreign_key "companies", "users"
+  add_foreign_key "company_services", "companies"
+  add_foreign_key "company_services", "services"
   add_foreign_key "properties", "companies"
   add_foreign_key "provinces", "countries"
-  add_foreign_key "services", "companies"
 end

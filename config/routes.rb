@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :company_services
+  resources :contacts
+  resources :contacts
+  resources :addresses
+  resources :properties
   resources :companies
   get 'home/index'
   get 'home/junk'

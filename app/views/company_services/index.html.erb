@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Company Services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Service</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_services.each do |company_service| %>
+      <tr>
+        <td><%= company_service.company %></td>
+        <td><%= company_service.service %></td>
+        <td><%= company_service.description %></td>
+        <td><%= link_to 'Show', company_service %></td>
+        <td><%= link_to 'Edit', edit_company_service_path(company_service) %></td>
+        <td><%= link_to 'Destroy', company_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company service', new_company_service_path %>

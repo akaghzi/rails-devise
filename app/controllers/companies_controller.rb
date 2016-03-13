@@ -4,14 +4,19 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    if @access_list.nil?
-      @companies = Company.where(user_id: current_user.id)
+    if current_user.id == -100
+      @companies = Company.all
+    else
+      kick_out
     end
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @address = @company.addresses.find_by(current: true)
+    @contact = Contact.find_by(contactable_id: @company.id, contactable_type: 'Company')
+    @services = CompanyService.where(company_id: @company.id)
   end
 
   # GET /companies/new
@@ -21,9 +26,8 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
-    if check_company_ownership(@company.id)
-    else
-      redirect_to root_url, alert: "You are not authorized to access the resource"
+    if !@isowner
+      kick_out
     end
   end
 
@@ -51,7 +55,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if check_company_ownership(@company.id)
       else
-        redirect_to root_url, alert: "You are not authorized to access the resource"
+        kick_out
       end
       
       if @company.update(company_params)
@@ -67,22 +71,19 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
-    if check_company_ownership(@company.id)
-    else
-      redirect_to root_url, alert: "You are not authorized to access the resource"
-    end
-    
-    @company.destroy
-    respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      kick_out    
+    # @company.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
       @company = Company.find(params[:id])
+      @isowner = check_company_ownership(@company.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
