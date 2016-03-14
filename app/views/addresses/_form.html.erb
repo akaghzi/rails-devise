@@ -33,8 +33,7 @@
   </div>
   <div class="form-group">
     <%= f.label :province_id %><br>
-		<%= f.grouped_collection_select :province_id, @countries, :provinces, :name, :id, :name %>
-    <%#= f.select :province_id, option_groups_from_collection_for_select(@countries, :provinces, :name, :name, :id) %>
+		<%= f.grouped_collection_select :province_id, address_countries, :provinces, :name, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :city %><br>

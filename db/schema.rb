@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313182747) do
+ActiveRecord::Schema.define(version: 20160314075313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(version: 20160313182747) do
 
   add_index "cities", ["province_id"], name: "index_cities_on_province_id", using: :btree
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "content"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+
   create_table "companies", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -111,6 +121,36 @@ ActiveRecord::Schema.define(version: 20160313182747) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "details", force: :cascade do |t|
+    t.integer  "detailable_id"
+    t.string   "detailable_type"
+    t.string   "content"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "details", ["detailable_type", "detailable_id"], name: "index_details_on_detailable_type_and_detailable_id", using: :btree
+
+  create_table "profile_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profile_types", ["name"], name: "index_profile_types_on_name", unique: true, using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "profile_type_id"
+    t.integer  "profileable_id"
+    t.string   "profileable_type"
+    t.string   "name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "profiles", ["profile_type_id"], name: "index_profiles_on_profile_type_id", using: :btree
+  add_index "profiles", ["profileable_type", "profileable_id"], name: "index_profiles_on_profileable_type_and_profileable_id", using: :btree
 
   create_table "properties", force: :cascade do |t|
     t.integer  "company_id"
@@ -190,6 +230,7 @@ ActiveRecord::Schema.define(version: 20160313182747) do
   add_foreign_key "companies", "users"
   add_foreign_key "company_services", "companies"
   add_foreign_key "company_services", "services"
+  add_foreign_key "profiles", "profile_types"
   add_foreign_key "properties", "companies"
   add_foreign_key "provinces", "countries"
 end

@@ -18,7 +18,6 @@ class AddressesController < ApplicationController
 
   # GET /addresses/new
   def new
-    @countries = Country.order("id")
     if params[:addressable_type] == 'company'
       company = Company.find(params[:addressable_id])
       @address = company.addresses.new(current: true)

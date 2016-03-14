@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  detailable_id: 
+  detailable_type: Detailable
+  content: MyString
+
+two:
+  detailable_id: 
+  detailable_type: Detailable
+  content: MyString

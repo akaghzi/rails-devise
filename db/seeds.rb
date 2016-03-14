@@ -76,3 +76,5 @@
 # Category.create!(name: 'property manager')
 # AddressType.create!(name: 'mailing')
 # AddressType.create!(name: 'residential')
+ProfileType.create!(name: 'company')
+ProfileType.create!(name: 'person')
